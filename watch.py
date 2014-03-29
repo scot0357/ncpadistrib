@@ -9,7 +9,8 @@ import requests
 import subprocess
 import datetime
 
-logging.basicConfig(filename='watch.log',
+log_path = os.path.join(os.path.dirname(__file__), 'watch.log')
+logging.basicConfig(filename=log_path,
                     level=logging.INFO,
                     format='%(asctime)-15s %(message)s')
 
@@ -81,9 +82,6 @@ def execute_instructions(instructions, config):
             upload_build(config)
         else:
             raise Exception('Could not build!')
-
-
-
 
 
 def main():
